@@ -1,0 +1,69 @@
+{
+  "name": "WordPress on Heroku",
+  "description": "A template for installing and running WordPress on Heroku",
+  "keywords": [ "PHP", "WordPress", "Blog", "CMS" ],
+  "website": "#",
+  "repository": "https://github.com/#",
+  "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+  "success_url": "/wp-admin/install.php",
+  "env": {
+    "DISABLE_WP_CRON": {
+      "description": "Set this to 'TRUE' to disable the default WP cron runner",
+      "value": "true",
+      "required": false
+    },
+    "WP_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "WP_AUTH_KEY": "herokuwp",
+        "WP_SECURE_AUTH_KEY": "herokuwp",
+        "WP_LOGGED_IN_KEY": "herokuwp",
+        "WP_NONCE_KEY": "herokuwp",
+        "WP_AUTH_SALT": "herokuwp",
+        "WP_SECURE_AUTH_SALT": "herokuwp",
+        "WP_LOGGED_IN_SALT": "herokuwp",
+        "WP_NONCE_SALT": "herokuwp"
+      }
+    }
+  },
+  "addons": [
+    {
+      "plan": "cleardb:ignite",
+      "as": "WP_DATABASE"
+    }
+  ],
+  "stack": "heroku-18"
+}
